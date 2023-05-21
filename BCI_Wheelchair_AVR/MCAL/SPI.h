@@ -9,6 +9,7 @@
 #ifndef SPI_H_
 #define SPI_H_
 
+
 #define SPI_MODE MASTER
 
 //enum to choose the state of this MCU
@@ -21,7 +22,7 @@ typedef enum{
 void SPI_Init(SPIMODE_type mode);
 u8 SPI_SendReceive(u8 data);  // used for master mainly
 void SPI_SendNoBlock(u8 data);
-
+u8 SPI_ReceivePeriodic(u8* pdata);
 
 
 

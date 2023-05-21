@@ -9,6 +9,7 @@
 #ifndef SPI_H_
 #define SPI_H_
 
+
 #define SPI_MODE MASTER
 
 //enum to choose the state of this MCU

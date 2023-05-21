@@ -9,8 +9,18 @@
 #ifndef MOVE_H_
 #define MOVE_H_
 
-void STOP(void);
-void MoveForward(void);
+//Contains the data expected from raspberry pi
+typedef enum{
+	STOP=0,
+	FORWARD_SPEED1,  //1
+	FORWARD_SPEED2,	//2
+	BACKWARD_SPEED1,	//3
+	BACKWARD_SPEED2,	//4
+	RIGHT,		//5
+	LEFT		//6
+	}MoveDirectionSpeed_type;
+
+void MOVE(void);
 
 
 

@@ -136,6 +136,7 @@ typedef enum{
 	TIMER2_STOP=0,
 	TIMER2_SCALER_1,
 	TIMER2_SCALER_8,
+    TIMER2_SCALER_32,
 	TIMER2_SCALER_64,
 	TIMER2_SCALER_256,
 	TIMER2_SCALER_1024,
@@ -164,7 +165,7 @@ typedef enum
 
 void TIMER2_Init(Timer0Mode_type mode,Timer0Scaler_type scaler);
 
-void TIMER2_OC0Mode(OC0Mode_type mode);
+void TIMER2_OC0Mode(OC2Mode_type mode);
 void TIMER2_OVF_InterruptEnable(void);
 void TIMER2_OVF_InterruptDisable(void);
 void TIMER2_OC_InterruptEnable(void);

@@ -6,16 +6,46 @@
  */ 
 #include "Motor.h"
 #include "MemMap.h"
+#include "Move.h"
+#include "StdTypes.h"
+#include "SPI.h"
 
-
-void STOP(void)
+void MOVE(void)
 {
-	MOTOR_Stop(M1);
-	MOTOR_Stop(M2);
-}
-
-void MoveForward(void)
-{
-	MOTOR_Forward(M1,speed1);
-	MOTOR_Forward(M2,speed1);
+	static u8 direction_speed;
+	if(SPI_ReceivePeriodic(&direction_speed))
+	{
+		switch(direction_speed)
+		{
+			
+		case STOP:
+			MOTOR_Stop(M1);
+			MOTOR_Stop(M2);
+		return;
+		case FORWARD_SPEED1:
+			MOTOR_Forward(M1,speed1);
+			MOTOR_Forward(M2,speed1);
+		return;
+		case FORWARD_SPEED2:
+		MOTOR_Forward(M1,speed2);
+		MOTOR_Forward(M2,speed2);
+		return;
+		case BACKWARD_SPEED1:
+		MOTOR_Backward(M1,speed1);
+		MOTOR_Backward(M2,speed1);	
+		return;
+		case BACKWARD_SPEED2:
+		MOTOR_Backward(M1,speed2);
+		MOTOR_Backward(M2,speed2);
+		return;
+		case RIGHT:
+		MOTOR_Stop(M1);
+		MOTOR_Forward(M2,speed2);
+		return;
+		case LEFT:
+		MOTOR_Forward(M1,speed2);
+		MOTOR_Stop(M2);
+		return;
+		}
+	}
 }

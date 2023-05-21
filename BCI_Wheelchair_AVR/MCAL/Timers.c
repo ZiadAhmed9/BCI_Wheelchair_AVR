@@ -309,7 +309,7 @@ void TIMER2_Init(Timer0Mode_type mode,Timer0Scaler_type scaler)
 	TCCR2|=scaler;
 }
 
-void TIMER2_OC0Mode(OC0Mode_type mode)
+void TIMER2_OC0Mode(OC2Mode_type mode)
 {
 	switch (mode)
 	{

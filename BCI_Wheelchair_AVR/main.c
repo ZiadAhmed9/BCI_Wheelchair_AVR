@@ -21,19 +21,9 @@ int main(void)
 	MOTOR_Init();
 	EXI_Init();
 	SPI_Init(SLAVE);
-	u8 rec_data;
-    /* Replace with your application code */
     while (1) 
     {
-		if(SPI_ReceivePeriodic(&rec_data))
-		{
-			if(rec_data==1)
-			{
-				MoveForward();
-			}
-			else
-			STOP();
-		}
+		MOVE();
     }
 }
 

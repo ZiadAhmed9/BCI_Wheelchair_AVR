@@ -14,8 +14,6 @@
 
 void MOTOR_Init(void)
 {
-	TIMER0_Init(TIMER0_FASTPWM_MODE,TIMER0_SCALER_64);
-	TIMER0_OC0Mode(OC0_NON_INVERTING);
 	Timer1_Init(TIMER1_FASTPWM_ICR_TOP_MODE,TIMER1_SCALER_64);
 	Timer1_OCRA1Mode(OCRA_NON_INVERTING);
 	Timer1_OCRB1Mode(OCRB_NON_INVERTING);
@@ -33,11 +31,11 @@ void MOTOR_Forward(MOTOR_type motor,MotorSpeed_type speed)
 		{
 			case speed1:
 				OCR1A=127;
-				OCR1B=0;
+				OCR2=0;
 			break;
 			case speed2:
 				OCR1A=255;
-				OCR1B=0;
+				OCR2=0;
 			break;
 			break;
 		}
@@ -45,11 +43,11 @@ void MOTOR_Forward(MOTOR_type motor,MotorSpeed_type speed)
 			switch(speed)
 			{
 				case speed1:
-				OCR0=127;
+				OCR1B=127;
 				OCR2=0;
 				break;
 				case speed2:
-				OCR0=255;
+				OCR1B=255;
 				OCR2=0;
 				break;	
 			}
@@ -66,11 +64,13 @@ void MOTOR_Backward(MOTOR_type motor,MotorSpeed_type speed)
 		{
 			case speed1:
 			OCR1A=0;
-			OCR1B=127;
+			OCR1B=0;
+			OCR2=127;
 			break;
 			case speed2:
 			OCR1A=0;
-			OCR1B=255;
+			OCR1B=0;
+			OCR2=255;
 			break;
 			break;
 		}
@@ -78,11 +78,13 @@ void MOTOR_Backward(MOTOR_type motor,MotorSpeed_type speed)
 		switch(speed)
 		{
 			case speed1:
-			OCR0=0;
+			OCR1A=0;
+			OCR1B=0;
 			OCR2=127;
 			break;
 			case speed2:
-			OCR0=0;
+			OCR1A=0;
+			OCR1B=0;
 			OCR2=255;
 			break;
 		}
@@ -95,10 +97,10 @@ void MOTOR_Stop(MOTOR_type motor)
 	{
 	case M1:
 		OCR1A=0;
-		OCR1B=0;
+		OCR2=0;
 	break;
 	case M2:
-		OCR0=0;
+		OCR1B=0;
 		OCR2=0;
 	break;
 	}

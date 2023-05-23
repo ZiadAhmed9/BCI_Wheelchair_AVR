@@ -4,10 +4,10 @@
  * Created: 5/21/2023 12:23:50 AM
  *  Author: COMPUMARTS
  */ 
-#include "Motor.h"
 #include "MemMap.h"
-#include "Move.h"
 #include "StdTypes.h"
+#include "MOTOR.h"
+#include "Move.h"
 #include "SPI.h"
 
 void MOVE(void)

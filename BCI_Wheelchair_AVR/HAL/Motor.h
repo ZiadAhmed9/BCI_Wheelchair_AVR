@@ -24,7 +24,7 @@ typedef enum{
 
 void MOTOR_Init(void);
 void MOTOR_Forward(MOTOR_type motor,MotorSpeed_type speed);
-void MOTOR_Backward(MOTOR_type motor,MotorSpeed_type speed);
+void MOTOR_Backward(MotorSpeed_type speed);
 void MOTOR_Stop(MOTOR_type motor);
 
 

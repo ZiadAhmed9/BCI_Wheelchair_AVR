@@ -25,7 +25,7 @@ const DIO_PinStatus_type  PinsStatusArray[TOTAL_PINS]={
 	OUTPUT,		 /* Port B Pin 4 /ss*/
 	OUTPUT,		 /* Port B Pin 5 //mosi*/
 	INFREE,		 /* Port B Pin 6 /miso*/
-	OUTPUT,		 /* Port B Pin 7 clk*/
+	INFREE,		 /* Port B Pin 7 clk*/
 	OUTPUT,		 /* Port C Pin 0 */
 	OUTPUT,		 /* Port C Pin 1 */
 	OUTPUT,		 /* Port C Pin 2 */

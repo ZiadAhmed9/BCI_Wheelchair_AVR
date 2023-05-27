@@ -12,17 +12,29 @@
 #include "EX_Interrupt.h"
 #include "Move.h"
 #include "SPI.h"
-
+#include "Timers_Services.h"
 int main(void)
 {
 /* Replace with your application code */
 DIO_Init();
 sei();
 MOTOR_Init();
-EXI_Init();
-SPI_Init(SLAVE);
+
+// EXI_Init();
+// SPI_Init(SLAVE);
+
+MOTOR_Backward(speed1);
+TIMER1_Pwm_Duty(50,Timer1A);
+TIMER1_Pwm_Duty(50,Timer1B);
+
 while (1)
 {
-MOVE();
+// 	while(DIO_ReadPin(PINB7))
+// 	{
+// 
+// 	}
+// 					MOTOR_Stop(M1);
+// 					MOTOR_Stop(M2);
+// 	}
 }
 }

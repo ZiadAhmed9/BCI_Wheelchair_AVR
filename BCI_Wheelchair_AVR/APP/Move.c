@@ -31,12 +31,10 @@ void MOVE(void)
 		MOTOR_Forward(M2,speed2);
 		return;
 		case BACKWARD_SPEED1:
-		MOTOR_Backward(M1,speed1);
-		MOTOR_Backward(M2,speed1);	
+		MOTOR_Backward(speed1);	
 		return;
 		case BACKWARD_SPEED2:
-		MOTOR_Backward(M1,speed2);
-		MOTOR_Backward(M2,speed2);
+		MOTOR_Backward(speed2);
 		return;
 		case RIGHT:
 		MOTOR_Stop(M1);

@@ -1,4 +1,3 @@
-
 /*
  * Move.h
  *
@@ -22,6 +21,8 @@ typedef enum{
 	}MoveDirectionSpeed_type;
 
 void MOVE(void);
+void TEST_FORWARD(void);
+void TEST_Backword(void);
 
 
 

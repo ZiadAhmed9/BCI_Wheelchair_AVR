@@ -7,24 +7,31 @@
 #include "MemMap.h"
 #include "StdTypes.h"
 #include "DIO_Interface.h"
+#include "EX_Interrupt.h"
 #include "Encoder.h"
 
-void ENCODER_Read(Encoder_type encoder)
+
+void ENCODER_Init(void)
 {
-	switch(encoder)
-	{
-	case Encoder1:
-		if(DIO_ReadPin(PINA0))
-		pos_i++;
-		else
-		pos_i--;
-	break;
-	
-	case Encoder2:
-		if(DIO_ReadPin(PINA1))
-		pos_ii++;
-		else
-		pos_ii--;
-	break;
-	}
+	EXI_Enable(EX_INT0);
+	EXI_Enable(EX_INT1);
+	EXI_TriggerEdge(EX_INT0,RISING_EDGE);
+	EXI_TriggerEdge(EX_INT1,RISING_EDGE);	
+	EXI_SetCallBack(EX_INT0,ENCODER1_Read);
+	EXI_SetCallBack(EX_INT1,ENCODER2_Read);
+}
+void ENCODER1_Read(void)
+{
+	if(DIO_ReadPin(PINA1))
+	pos_i++;
+	else
+	pos_i--;
+}
+
+void ENCODER2_Read(void)
+{
+	if(DIO_ReadPin(PINA1))
+	pos_ii++;
+	else
+	pos_ii--;
 }

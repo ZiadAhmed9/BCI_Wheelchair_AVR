@@ -5,6 +5,7 @@
  * Author : COMPUMARTS
  */ 
 #define F_CPU 8000000
+#include <util/delay.h>
 #include "StdTypes.h"
 #include "MemMap.h"
 #include "MOTOR.h"
@@ -14,6 +15,8 @@
 #include "Move.h"
 #include "SPI.h"
 #include "Timers_Services.h"
+#include "Encoder.h"
+#include "PID.h"
 
 int main(void)
 {
@@ -23,9 +26,10 @@ int main(void)
 	EXI_Init();
 	SPI_Init(SLAVE);
 	Timer1_SetInterruptTime_ms(1,millis);
+	ENCODER_Init();
 	while(1) 
     {
-	MOVE();
+		PID_Result(128);
     }
 }
 

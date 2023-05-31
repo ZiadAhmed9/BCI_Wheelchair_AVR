@@ -11,8 +11,9 @@
 #include "DIO_Interface.h"
 #include "Timers.h"
 #include "Timers_Services.h"
-#include "MOTOR.h"
 #include "MOTOR_Cfg.h"
+#include "MOTOR.h"
+
 
 void MOTOR_Init(void)
 {
@@ -99,5 +100,35 @@ void MOTOR_Stop(MOTOR_type motor)
 	case M2:
 			TIMER2_Pwm_Duty(0);
 	break;
+	}
+}
+
+void MOTOR_Forward_Pwm(MOTOR_type motor,u16 duty)
+{
+	switch(motor)
+	{
+		case M1:
+		TIMER0_Pwm_Duty(duty);
+		DIO_WritePin(M1_Direction,FORWARD);
+		break;
+		case M2:
+		TIMER2_Pwm_Duty(duty);
+		DIO_WritePin(M2_Direction,FORWARD);
+		break;
+	}
+}
+
+void MOTOR_Backward_Pwm(MOTOR_type motor,u16 duty)
+{
+	switch(motor)
+	{
+		case M1:
+		TIMER0_Pwm_Duty(duty);
+		DIO_WritePin(M1_Direction,BACKWARD);
+		break;
+		case M2:
+		TIMER2_Pwm_Duty(duty);
+		DIO_WritePin(M2_Direction,BACKWARD);
+		break;
 	}
 }

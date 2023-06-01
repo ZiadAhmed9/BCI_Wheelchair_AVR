@@ -12,7 +12,6 @@
 #define KP 0.5
 #define KI 0.4
 void SPEED_Calc(void);
-
 void PID_Result(u8 Desired);
 u8 SPEED_DutyCycle_Convert(volatile s16* speed);
 void TIME_Diff(void);

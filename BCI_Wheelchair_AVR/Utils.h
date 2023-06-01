@@ -13,6 +13,6 @@
 #define SET_BIT(reg,bit)	(reg=reg|(1<<bit))
 #define CLR_BIT(reg,bit)	(reg=reg&~(1<<bit))
 #define TOG_BIT(reg,bit)	(reg=reg^(1<<bit))
-
+#define BIT_IS_CLEAR(REG,BIT) ( ! (REG & (1<<BIT)) )
 
 #endif /* UTILS_H_ */

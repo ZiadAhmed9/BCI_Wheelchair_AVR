@@ -12,7 +12,7 @@
 #define GYRO_ADDRESS 0xD0
 
 void GYRO_Init(void);
-u16 GYRO_ReadRawValue(u8 reg);
-u16 GYRO_ReadTemperature(void);
+s32 GYRO_ReadRawValue(u8 reg);
+s32 GYRO_ReadTemperature(void);
 
 #endif /* GYROSCOPE_H_ */

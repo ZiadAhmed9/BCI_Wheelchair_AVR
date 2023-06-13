@@ -9,23 +9,18 @@
 #ifndef I2C_H_
 #define I2C_H_
 
+#define F_CPU 16000000
+#define SCL_CLK 100000L							/* Define SCL clock frequency */
+#define BITRATE(TWSR)	((F_CPU/SCL_CLK)-16)/(2*pow(4,(TWSR&((1<<TWPS0)|(1<<TWPS1))))) /* Define bit rate */
 
-#define I2C_START         0x08
-#define I2C_REP_START     0x10
-#define I2C_MT_SLA_W_ACK  0x18
-#define I2C_MT_SLA_R_ACK  0x40
-#define I2C_MT_DATA_ACK   0x28
-#define I2C_MR_DATA_ACK   0x50
-#define I2C_MR_DATA_NACK  0x58
-
-
-void I2C_Init(void);
-void I2C_Start(void);
-void I2C_Stop(void);
-void I2C_Write(u8 data);
-u8 I2C_Read_ACK(void);
-u8 I2C_Read_NO_ACK(void);
-u8 I2C_Status(void);
+void I2C_Init();								/* I2C initialize function */
+u8  I2C_Start(char);						/* I2C start function */
+u8  I2C_Repeated_Start(char);				/* I2C repeated start function */
+void I2C_Stop();								/* I2C stop function */
+void I2C_Start_Wait(char);						/* I2C start wait function */
+u8  I2C_Write(char);						/* I2C write function */
+char I2C_Read_Ack();							/* I2C read ack function */
+char I2C_Read_Nack();							/* I2C read nack function */
 
 
 

@@ -23,7 +23,6 @@ typedef enum{
 void MOVE(void);
 void TEST_FORWARD(void);
 void TEST_Backword(void);
-
-
+void GET_BCIReading(void);
 
 #endif /* MOVE_H_ */

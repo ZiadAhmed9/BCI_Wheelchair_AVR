@@ -69,3 +69,16 @@ void UART_SendStringAsynch(u8*str)
 	UART_SendNoBlock(str[0]); //send first char
 	TX_str=str; 
 }
+
+
+
+
+void USART_SendString(char *str)					/* Send string of USART data function */
+{
+	int i=0;
+	while (str[i]!=0)
+	{
+		USART_TxChar(str[i]);						/* Send each char of string till the NULL */
+		i++;
+	}
+}

@@ -46,6 +46,11 @@ u8 UART_ReceivePeriodic(u8* pdata)
 	}
 	return 0;
 }
+void USART_TxChar(char data)						/* Data transmitting function */
+{
+	UDR = data;										/* Write data to be transmitting in UDR */
+	while (!(UCSRA & (1<<UDRE)));					/* Wait until data transmit and buffer get empty */
+}
 
 void UART_RX_InterruptEnable(void)
 {

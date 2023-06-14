@@ -14,5 +14,6 @@ void UART_ReceiveString(u8*str);
 void UART_SendNumber(u32 num);
 u32 UART_ReceiveNumber(void);
 void UART_SendStringAsynch(u8*str);
+void USART_SendString(char *str);
 
 #endif /* UART_SERVICES_H_ */

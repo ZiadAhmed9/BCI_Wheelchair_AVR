@@ -19,8 +19,11 @@
 #include "Timers_Services.h"
 #include "Encoder.h"
 #include "PID.h"
+#include "Gyroscope.h"
 #include "UART_Services.h"
 #include "I2C.h"
+#include "ALARM_CHECK.h"
+
 
 
 
@@ -33,21 +36,23 @@
 
 int main(void)
 {
+	float X,Y,Z,T;
 	DIO_Init();
 	UART_init();
 	MOTOR_Init();
 // 	MOTOR_Init();
-// 	I2C_Init();
+	I2C_Init();
+	GYRO_Init();
 // 	ENCODER_Init();
 	sei();
-	UART_RX_InterruptEnable();
-	UART_RX_SetCallBack(GET_BCIReading);
+// 	UART_RX_InterruptEnable();
+// 	UART_RX_SetCallBack(GET_BCIReading);
 	
 	while(1)
 	{
-		TEST_BCI();
-		
+		MOVE();
 
+		
 
 	}
 }

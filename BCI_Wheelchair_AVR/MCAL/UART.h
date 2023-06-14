@@ -14,6 +14,7 @@ void UART_init(void);
 void UART_SendData(u8 data);
 u8 UART_ReceiveData(void);
 u8 UART_ReceivePeriodic(u8* pdata);
+void USART_TxChar(char data);					/* Data transmitting function */
 void UART_RX_InterruptEnable(void);
 void UART_RX_InterruptDisable(void);
 void UART_TX_InterruptEnable(void);

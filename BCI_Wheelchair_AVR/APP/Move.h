@@ -24,5 +24,6 @@ void MOVE(void);
 void TEST_FORWARD(void);
 void TEST_Backword(void);
 void GET_BCIReading(void);
+void TEST_BCI(void);
 
 #endif /* MOVE_H_ */
